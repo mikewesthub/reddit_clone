@@ -15,7 +15,9 @@ class LoginController < ApplicationController
   def destroy
   end
 
+  private
+
   def user_params
-    params.require(:user).permit(:user_name, :password, :email)
+    params.permit(:user_name, :password)
   end
 end

@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'login/create'
+  get 'login/create' => 'login#create'
 
-  get 'login/new'
+  get 'login/new' => 'login#new'
+
+  post 'login/new' => 'login#post', as: 'post'
+
+  delete 'login' => 'login#destory', as: 'logout'
 
   resources :users
 
