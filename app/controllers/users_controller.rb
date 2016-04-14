@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # def index
   # end
   def new
+    @user = User.new
   end
 
   def show
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    redirect_to action: "show", id: @user.id
   end
 
   private

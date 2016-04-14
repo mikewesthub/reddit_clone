@@ -1,2 +1,25 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Create a Profile</h1>
+<p>
+  Already a user?
+  <%= link_to "login", login_new_path %>
+</p>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+   <%= f.label :password_confirmation %>
+   <%= f.password_field :password_confirmation %>
+ </div>
+    <%= f.submit %>
+<% end %>
