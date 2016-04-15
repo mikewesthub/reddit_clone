@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
   def index
+    @comments = Comment.where(user_id: current_user.id)
   end
 
   def new
+    @comment = Comment.new
   end
 
   def show

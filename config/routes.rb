@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'individual_links/index'
+
   post 'login/create' => 'login#create', as: 'login'
 
   get 'login/new' => 'login#new'

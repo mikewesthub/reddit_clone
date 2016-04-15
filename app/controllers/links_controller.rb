@@ -28,7 +28,7 @@ class LinksController < ApplicationController
 
   def create
     @link = current_user.links.create(link_params)
-    redirect_to action: "show", id: @link.id
+    redirect_to individual_links_index_path
   end
 
   private
