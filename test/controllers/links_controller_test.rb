@@ -39,8 +39,10 @@ class LinksControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
+    @user = users(:user_zero)
+    session[:user_id] = @user.id
     prev_link_count = Link.count
-    post :create, link: { title: "Over 9000", description: "Vegeta gets a huge surprise", url: "http://www.dbz.com" }
+    post :create, link: { title: "Over 9000", description: "Vegeta gets a huge surprise", url: "http://www.dbz.com", user_id: @user }
     assert assigns(:link).valid?
     assert_equal "http://www.dbz.com", assigns(:link).url
     assert_equal prev_link_count + 1, Link.count
