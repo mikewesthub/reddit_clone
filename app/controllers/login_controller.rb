@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   def new
+    # @user = User.find(params[:id])
   end
 
   def create
@@ -13,6 +14,8 @@ class LoginController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil if current_user
+    redirect_to login_path
   end
 
   private

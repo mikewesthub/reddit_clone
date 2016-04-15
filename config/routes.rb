@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'links/index'
+
+  get 'links/new'
+
+  get 'links/show'
+
+  get 'links/edit'
+
+  get 'links/delete'
+
+  get 'links/update'
+
+  get 'links/create'
+
   get 'login/create' => 'login#create'
 
   get 'login/new' => 'login#new'

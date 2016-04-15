@@ -40,9 +40,9 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should get create" do
     prev_user_count = User.count
-    post :create, user: { user_name: "westmd23" }
+    post :create, user: { user_name: "MalachyConstant", password: "pass" }
     assert assigns(:user).valid?
-    assert_equal "westmd23", assigns(:user).user_name
+    assert_equal "MalachyConstant", assigns(:user).user_name
     assert_equal prev_user_count + 1, User.count
     # assert_redirected_to controller: "users", action: "show", id: assigns(:user).id
   end

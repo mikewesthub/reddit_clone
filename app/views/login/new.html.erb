@@ -1,6 +1,6 @@
 <h1>Login</h1>
 
-<%= form_tag login_new_path do %>
+<%= form_tag root_path, method: "get" do %>
   <%= label_tag :user_name %>
   <%= text_field_tag :user_name %>
   <%= label_tag :password %>

@@ -2,8 +2,8 @@
 
 user_zero:
   user_name: gman
-  password: password
+  password_hash: "$2a$10$Ka6kvZ5O10KlyQOE0yrYdOIYHuM1gDNlQhtsXU/DkB5TQuuB0W.VK"
 
 two:
   user_name: MyString
-  password: MyString
+  password_hash: MyString
