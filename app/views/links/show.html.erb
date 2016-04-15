@@ -1,2 +1,12 @@
-<h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+<h1>Your Post</h1>
+
+<div>
+  <%= link_to "#{@link.title}", @link.url %>
+</div>
+<div>
+  <%= @link.description %>
+</div>
+
+
+<%= link_to "Edit", edit_link_path %>
+<%= link_to "Delete", link_path, method: :delete %>

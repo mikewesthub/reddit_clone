@@ -42,7 +42,7 @@ class LinksControllerTest < ActionController::TestCase
     prev_link_count = Link.count
     post :create, link: { title: "Over 9000", description: "Vegeta gets a huge surprise", url: "http://www.dbz.com" }
     assert assigns(:link).valid?
-    assert_equal "Over 9000", assigns(:link).title
+    assert_equal "http://www.dbz.com", assigns(:link).url
     assert_equal prev_link_count + 1, Link.count
   end
 
