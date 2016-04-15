@@ -13,13 +13,13 @@ Rails.application.routes.draw do
 
   get 'links/create'
 
-  get 'login/create' => 'login#create'
+  post 'login/create' => 'login#create', as: 'login'
 
   get 'login/new' => 'login#new'
 
-  post 'login/new' => 'login#post', as: 'post'
+  post 'login/new' => 'login#post'
 
-  delete 'login' => 'login#destory', as: 'logout'
+  delete 'logout' => 'login#destroy', as: 'logout'
 
   resources :users
 

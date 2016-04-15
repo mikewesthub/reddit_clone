@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     @user = User.find_by(user_name: user_params[:user_name])
     if @user && @user.password == user_params[:password]
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to links_index_path
     else
       render :new
     end
@@ -15,7 +15,7 @@ class LoginController < ApplicationController
 
   def destroy
     session[:user_id] = nil if current_user
-    redirect_to login_path
+    redirect_to login_new_path
   end
 
   private
