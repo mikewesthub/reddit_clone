@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :user_name, presence: true
   validates :password, confirmation: true
+  has_many :links
 
   def password
     @password ||= BCrypt::Password.new(password_hash)

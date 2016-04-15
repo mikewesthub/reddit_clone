@@ -1,18 +1,4 @@
 Rails.application.routes.draw do
-  get 'links/index'
-
-  get 'links/new'
-
-  get 'links/show'
-
-  get 'links/edit'
-
-  get 'links/delete'
-
-  get 'links/update'
-
-  get 'links/create'
-
   post 'login/create' => 'login#create', as: 'login'
 
   get 'login/new' => 'login#new'
@@ -22,6 +8,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'login#destroy', as: 'logout'
 
   resources :users
+
+  resources :links 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

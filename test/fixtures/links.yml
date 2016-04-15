@@ -1,10 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+tacocat:
   user_id: 1
-  title: MyString
-  description: MyString
-  url: MyString
+  title: tacocat
+  description: a cat that looks like a taco
+  url: www.tacocat.com
 
 two:
   user_id: 1
