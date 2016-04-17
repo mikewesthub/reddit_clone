@@ -1,14 +1,10 @@
 <h1>The Front Page of My Internet</h1>
-<header>
-  <%= link_to "Edit Info", edit_user_path(current_user.id) %>
-</header>
 <% @links.each do |link| %>
-
   <div>
-    <%= link_to "#{link.title}", link.url %>
+    <p>
+      <%= link_to "#{link.title}", link.url %>
+      <%= link.description %>
+      <%= link_to "Comment", new_comment_path %>
+    </p>
   </div>
-  <div>
-    <%= link.description %>
-  </div>
-
 <% end %>

@@ -1,6 +1,12 @@
 <h1>User Info</h1>
 
-<%= @user.user_name %>
-<%= @user.email %>
-<%= link_to "Delete Account", user_path, method: :delete %>
-<%= link_to "Edit your information", edit_user_path %>
+<div>
+  <%= @user.user_name %>
+</div>
+<div>
+  <%= @user.email %>
+</div>
+<div>
+  <%= link_to "Edit Info", edit_user_path %>
+  <%= link_to "Delete Account", user_path, method: :delete %>
+</div>

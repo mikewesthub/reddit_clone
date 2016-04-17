@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    @comment.link_id = params["link_id"]
   end
 
   def show
@@ -28,6 +29,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create(comment_params)
+    # @comment.link_id = params["link_id"]
     redirect_to comments_path
   end
 

@@ -45,11 +45,10 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    @user = users(:user_zero)
-    session[:user_id] = @user.id
+    @link = links(:tacocat)
     prev_comment_count = Comment.count
-    post :create, comment: { body: "I'm a little teapot", user_id: @user.id }
-    assert assigns(:comment).valid?
+    post :create, comment: { body: "I'm a little teapot", link_id: @link.id }
+    assert @link.id, assigns(:comment).link_id
     assert_equal "I'm a little teapot", assigns(:comment).body
     assert_equal prev_comment_count + 1, Comment.count
   end
