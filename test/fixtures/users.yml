@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 user_zero:
+  id: 1
   user_name: gman
   password_hash: "$2a$10$Ka6kvZ5O10KlyQOE0yrYdOIYHuM1gDNlQhtsXU/DkB5TQuuB0W.VK"
 

@@ -2,4 +2,5 @@
 
 <%= @user.user_name %>
 <%= @user.email %>
+<%= link_to "Delete Account", user_path, method: :delete %>
 <%= link_to "Edit your information", edit_user_path %>

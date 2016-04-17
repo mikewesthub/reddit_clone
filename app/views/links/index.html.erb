@@ -1,5 +1,7 @@
 <h1>The Front Page of My Internet</h1>
-
+<header>
+  <%= link_to "Edit Info", edit_user_path(current_user.id) %>
+</header>
 <% @links.each do |link| %>
 
   <div>

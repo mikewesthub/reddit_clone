@@ -1,13 +1,18 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  # test "should get index" do
-  #   get :index
-  #   assert_response :success
-  # end
+  setup do
+    @user = users(:user_zero)
+    session[:user_id] = @user.id
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
 
   test "should get new" do
-    get :new
+    get :new, id: nil 
     assert_response :success
   end
 
@@ -27,7 +32,7 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:user_zero)
     user_count = User.count
     delete :destroy, id: @user.id
-    assert_redirected_to controller: "users", action: "index"
+    assert_redirected_to controller: "login", action: "new"
     assert_equal user_count - 1, User.count
   end
 

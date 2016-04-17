@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  # def index
-  # end
   def new
     @user = User.new
   end
@@ -13,9 +11,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def destroy #after creating login make sure destroy redirects to new login
+  def destroy 
     User.find(params[:id]).destroy
-    redirect_to action: "index"
+    redirect_to login_new_path
   end
 
   def update

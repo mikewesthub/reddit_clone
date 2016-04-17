@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class CommentsControllerTest < ActionController::TestCase
+  setup do
+    @user = users(:user_zero)
+    session[:user_id] = @user.id
+  end
+
   test "should get index" do
+    @comment = comments(:comment)
     get :index
     assert_response :success
   end
