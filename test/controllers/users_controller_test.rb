@@ -12,7 +12,9 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new, id: nil 
+    unless @user
+      get :new
+    end
     assert_response :success
   end
 

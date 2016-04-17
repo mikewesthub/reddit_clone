@@ -3,7 +3,7 @@
 <% @links.each do |link| %>
 
   <div>
-    <%= link_to "#{link.title}", link.url %>
+    <%= link_to "#{link.title}", link_path(id: link.id) %>
   </div>
   <div>
     <%= link.description %>
