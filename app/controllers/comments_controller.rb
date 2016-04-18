@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-    @link = Link.find(params[:link_id])
+    @link = Link.find(params[:id])
   end
 
   def show
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.create!(comment_params)
     @comment.link_id = params["link_id"]
     @comment.save
-    redirect_to link_comments_path
+    redirect_to comments_path
   end
 
   private

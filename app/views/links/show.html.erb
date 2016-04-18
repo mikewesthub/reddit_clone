@@ -7,7 +7,7 @@
   <%= @link.description %>
 </div>
 <div>
-  <%= link_to "Comments", link_comments_path(link_id: @link.id) %>
+  <%= link_to "Comments", comments_path(link_id: @link.id) %>
 </div>
 
 <% if current_user %>
