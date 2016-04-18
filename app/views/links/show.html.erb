@@ -1,5 +1,10 @@
 <h1>Post</h1>
 
+<% if current_user == @link.user %>
+  <%= link_to "Edit", edit_link_path %>
+  <%= link_to "Delete", link_path, method: :delete %>
+<% end %>
+
 <div>
   <%= link_to "#{@link.title}", @link.url %>
 </div>
@@ -7,11 +12,8 @@
   <%= @link.description %>
 </div>
 
-<div>
-  <%= link_to "Comments", link_comments_path(link_id: @link.id) %>
-</div>
+<%= render 'comments/new' %>
 
-<% if current_user == @link.user %>
-  <%= link_to "Edit", edit_link_path %>
-  <%= link_to "Delete", link_path, method: :delete %>
+<% @link.comments.each do |comment| %>
+  <%= comment.body %>
 <% end %>

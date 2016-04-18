@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_action :set_link, only: [:show, :edit, :destroy, :update]
+
   def index
     @links = Link.all
   end
@@ -8,20 +10,18 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find(params[:id])
+    @comment = @link.comments.build
   end
 
   def edit
-    @link = Link.find(params[:id])
   end
 
   def destroy
-    @link = Link.find(params[:id]).destroy
+    @link.destroy
     redirect_to individual_links_index_path
   end
 
   def update
-    @link = Link.find(params[:id])
     @link.update(link_params)
     redirect_to action: "show", id: @link.id
   end

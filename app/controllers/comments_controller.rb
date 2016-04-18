@@ -1,16 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :set_link, only: [:new, :show, :edit, :destroy, :update]
-  before_action :set_comment, only: [:show, :edit, :destroy, :update]
+  before_action :set_link, only: [:edit, :destroy, :update, :create]
+  before_action :set_comment, only: [:edit, :destroy, :update]
 
   def index
     @comments = Comment.where(link_id: params[:link_id])
-  end
-
-  def new
-    @comment = Comment.new
-  end
-
-  def show
   end
 
   def edit
@@ -28,7 +21,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.create!(comment_params)
-    redirect_to link_comments_path(link_id: @comment.link_id)
+    redirect_to link_path(@link.id)
   end
 
   private
