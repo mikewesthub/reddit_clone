@@ -5,7 +5,7 @@
       <%= link_to "#{link.title}", link.url %>
       <%= link.description %>
       <%= link_to "View", link_path(id: link.id) %>
-      <%= link_to "Comment", new_comment_path(id: link.id) %>
+      <%= link_to "Comment", new_link_comment_path(link_id: link.id) %>
     </p>
   </div>
 <% end %>

@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <header>
-<% if current_user %>
-  <%= link_to "Front Page", links_path %>
-  <%= link_to "New Post", new_link_path %>
-  <%= link_to "Posts", individual_links_index_path %>
-  <%= link_to "User Info" %>
-  <%= link_to "Logout", logout_path, method: "delete" %>
-<% end %>
+  <% if current_user %>
+    <%= link_to "Front Page", links_path %>
+    <%= link_to "New Post", new_link_path %>
+    <%= link_to "Posts", individual_links_index_path %>
+    <%= link_to "User Info", user_path(current_user) %>
+    <%= link_to "Logout", logout_path, method: "delete" %>
+  <% end %>
 </header>
 <body>
 

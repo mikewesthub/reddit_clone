@@ -17,7 +17,7 @@ class LinksController < ApplicationController
 
   def destroy
     @link = Link.find(params[:id]).destroy
-    redirect_to links_path
+    redirect_to individual_links_index_path
   end
 
   def update
@@ -35,5 +35,9 @@ class LinksController < ApplicationController
 
   def link_params
     params.require(:link).permit(:title, :description, :url, :user_id)
+  end
+
+  def set_link
+    @link = Link.find(params[:id])
   end
 end

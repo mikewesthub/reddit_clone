@@ -7,8 +7,9 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
+    @link = links(:tacocat)
     @comment = comments(:comment)
-    get :index
+    get :index, link_id: @link.id
     assert_response :success
   end
 
@@ -19,21 +20,24 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
+    @link = links(:tacocat)
     @comment = comments(:comment)
-    get :show, id: @comment.id
+    get :show
     assert_response :success
   end
 
   test "should get edit" do
+    @link = links(:tacocat)
     @comment = comments(:comment)
-    get :edit, id: @comment.id
+    get :edit, link_id: @comment.link_id
     assert_response :success
   end
 
   test "should get delete" do
+    @link = links(:tacocat)
     @comment = comments(:comment)
     comment_count = Comment.count
-    delete :destroy, id: @comment.id
+    delete :destroy, link_id: @comment.link_id
     assert_redirected_to controller: "comments", action: "index"
     assert_equal comment_count - 1, Comment.count
   end

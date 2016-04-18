@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  validates :user_name, presence: true
-  validates :password, confirmation: true
+  validates :user_name, presence: true, uniqueness: true
+  validates :password, confirmation: true, presence: true
   has_many :links
   has_many :comments
 
