@@ -1,4 +1,4 @@
-<h1>Your Post</h1>
+<h1>Post</h1>
 
 <div>
   <%= link_to "#{@link.title}", @link.url %>
@@ -6,7 +6,11 @@
 <div>
   <%= @link.description %>
 </div>
+<div>
+  <%= link_to "Comments", link_comments_path(link_id: @link.id) %>
+</div>
 
-
-<%= link_to "Edit", edit_link_path %>
-<%= link_to "Delete", link_path, method: :delete %>
+<% if current_user %>
+  <%= link_to "Edit", edit_link_path %>
+  <%= link_to "Delete", link_path, method: :delete %>
+<% end %>

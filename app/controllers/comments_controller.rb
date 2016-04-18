@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.where(user_id: current_user.id)
+    @comments = Comment.all
   end
 
   def new
     @comment = Comment.new
-    @comment.link_id = params["link_id"]
+    @link = Link.find(params[:link_id])
   end
 
   def show
@@ -28,9 +28,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.create(comment_params)
-    # @comment.link_id = params["link_id"]
-    redirect_to comments_path
+    @comment = current_user.comments.create!(comment_params)
+    @comment.link_id = params["link_id"]
+    @comment.save
+    redirect_to link_comments_path
   end
 
   private

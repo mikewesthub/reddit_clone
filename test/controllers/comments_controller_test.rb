@@ -13,7 +13,8 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    @link = links(:tacocat)
+    get :new, id: @link.id
     assert_response :success
   end
 
@@ -46,9 +47,11 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should get create" do
     @link = links(:tacocat)
+    @user = users(:user_zero)
     prev_comment_count = Comment.count
-    post :create, comment: { body: "I'm a little teapot", link_id: @link.id }
+    post :create, comment: { body: "I'm a little teapot", link_id: @link.id, user_id: @user.id }
     assert @link.id, assigns(:comment).link_id
+    assert @user.id, assigns(:comment).user_id
     assert_equal "I'm a little teapot", assigns(:comment).body
     assert_equal prev_comment_count + 1, Comment.count
   end
