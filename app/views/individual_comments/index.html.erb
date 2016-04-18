@@ -1,11 +1,10 @@
-<h1>Your Posts</h1>
+<h2>Your Comments</h2>
 
-<% @links.each do |link| %>
+<% @comments.each do |comment| %>
 
 <ul class="list-group">
     <li class ="list-group-item">
-      <%= link_to "#{link.title}", link_path(id: link.id) %>
-      <%= link.description %>
+      <%= comment.body %>
       <small><%= time_ago_in_words(Time.now) %></small>
     </li>
   </ul>

@@ -16,7 +16,7 @@
             <li><%= link_to "Front Page", links_path %></li>
             <li><%= link_to "New Post", new_link_path %></li>
             <li><%= link_to "Posts", individual_links_index_path %></li>
-            <li><%= link_to "Comments" %></li>
+            <li><%= link_to "Comments", individual_comments_index_path %></li>
             <li><%= link_to "User Info", user_path(current_user) %></li>
             <li><%= link_to "Logout", logout_path, method: "delete" %></li>
           <% else %>

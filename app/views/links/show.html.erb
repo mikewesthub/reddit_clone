@@ -1,4 +1,4 @@
-<h1>Post</h1>
+<h2>Post</h2>
 
 <% if current_user == @link.user %>
   <%= link_to "Edit", edit_link_path %>
@@ -12,7 +12,7 @@
       <div class ="text-right">
         by: <%= @link.user.user_name %>
         <small><%= time_ago_in_words(Time.now) %></small>
-      </div>  
+      </div>
     </li>
 </ul>
 
