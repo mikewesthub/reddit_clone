@@ -5,15 +5,28 @@
   <%= link_to "Delete", link_path, method: :delete %>
 <% end %>
 
-<div>
-  <%= link_to "#{@link.title}", @link.url %>
-</div>
-<div>
-  <%= @link.description %>
-</div>
+<ul class="list-group">
+    <li class ="list-group-item">
+      <%= link_to "#{@link.title}", @link.url %>
+      <%= @link.description %>
+      <div class ="text-right">
+        by: <%= @link.user.user_name %>
+        <small><%= time_ago_in_words(Time.now) %></small>
+      </div>  
+    </li>
+</ul>
 
 <%= render 'comments/new' %>
 
-<% @link.comments.each do |comment| %>
-  <%= comment.body %>
-<% end %>
+<ul class="list-group">
+
+    <% @link.comments.each do |comment| %>
+    <li class ="list-group-item">
+        <%= comment.body %>
+        <div class="text-right">
+          by: <%= comment.user.user_name %>
+          <small><%= time_ago_in_words(Time.now) %></small>
+        </div>
+    </li>
+    <% end %>
+  </ul>

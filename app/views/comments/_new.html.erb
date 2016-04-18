@@ -1,10 +1,12 @@
-<h1>Leave a Comment</h1>
+<h4>Leave a Comment</h4>
 
-<%= form_for @comment, url: link_comments_path(@link.id) do |f| %>
-<%= f.hidden_field :link_id, value: @link.id %>
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-    <%= f.submit %>
-<% end %>
+<form class="form-horizontal">
+  <%= form_for @comment, url: link_comments_path(@link.id) do |f| %>
+  <%= f.hidden_field :link_id, value: @link.id %>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">Comment</button>
+    </div>
+  <% end %>
+</form>

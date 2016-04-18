@@ -2,11 +2,11 @@
 
 <% @links.each do |link| %>
 
-  <div>
-    <%= link_to "#{link.title}", link_path(id: link.id) %>
-  </div>
-  <div>
-    <%= link.description %>
-  </div>
+<ul class="list-group">
+    <li class ="list-group-item">
+      <%= link_to "#{link.title}", link_path(id: link.id) %>
+      <%= link.description %>
+    </li>
+  </ul>
 
 <% end %>

@@ -10,7 +10,7 @@ class LinksController < ApplicationController
   end
 
   def show
-    @comment = @link.comments.build
+    @comment = Comment.new(link_id: @link.id)
   end
 
   def edit

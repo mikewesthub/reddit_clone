@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
   before_action :set_link, only: [:edit, :destroy, :update, :create]
   before_action :set_comment, only: [:edit, :destroy, :update]
 
-  def index
-    @comments = Comment.where(link_id: params[:link_id])
-  end
-
   def edit
   end
 

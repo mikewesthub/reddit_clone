@@ -1,10 +1,12 @@
 <h1>The Front Page of My Internet</h1>
 <% @links.each do |link| %>
-  <div>
-    <p>
-      <%= link_to "#{link.title}", link.url %>
-      <%= link.description %>
-      <%= link_to "Comment", link_path(id: link.id) %>
-    </p>
-  </div>
+  <ul class="list-group">
+      <li class ="list-group-item">
+        <%= link_to "#{link.title}", link.url %>
+        <%= link.description %>
+      </li>
+      <li class ="list-group-item">
+        <%= link_to "Comment", link_path(id: link.id) %>
+      </li>
+  </ul>
 <% end %>
