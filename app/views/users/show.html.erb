@@ -1,11 +1,13 @@
-<h2>User Info</h2>
+<h2>Your Information</h2>
 
-<div>
-  <%= @user.user_name %>
-</div>
-<div>
-  <%= @user.email %>
-</div>
+<ul class="list-group">
+    <li class ="list-group-item">
+      Username: <%= @user.user_name %>
+    </li>
+    <li class ="list-group-item">
+      Email: <%= @user.email %>
+    </li>
+
 <div>
   <%= link_to "Edit Info", edit_user_path %>
   <%= link_to "Delete Account", user_path, method: :delete %>
