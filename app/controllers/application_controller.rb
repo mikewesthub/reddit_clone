@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-   @user ||= User.where(id: session[:user_id]).first
+   @current_user ||= User.where(id: session[:user_id]).first
   end
 
   helper_method :current_user
