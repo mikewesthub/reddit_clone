@@ -1,3 +1,11 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+    </ul>
+  </div>
+</nav>    
+
 <h2>Your Comments</h2>
 
 <% @comments.each do |comment| %>
@@ -5,7 +13,9 @@
 <ul class="list-group">
     <li class ="list-group-item">
       <%= comment.body %>
-      <small><%= time_ago_in_words(Time.now) %></small>
+      <div>
+        <small><%= time_ago_in_words(Time.now) %></small>
+      </div>
     </li>
   </ul>
 

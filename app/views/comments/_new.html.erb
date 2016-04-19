@@ -2,8 +2,10 @@
 
   <%= form_for @comment, url: link_comments_path(@link.id) do |f| %>
   <%= f.hidden_field :link_id, value: @link.id %>
+    <div class="form-group">
       <%= f.label :body %>
       <%= f.text_area :body %>
+    </div>  
     <div class="form-group">
       <button type="submit" class="btn btn-success">Comment</button>
     </div>

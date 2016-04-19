@@ -9,7 +9,7 @@
     <li class ="list-group-item">
       <%= link_to "#{@link.title}", @link.url %>
       <%= @link.description %>
-      <div class ="text-right">
+      <div class>
         by: <%= @link.user.user_name %>
         <small><%= time_ago_in_words(Time.now) %></small>
       </div>
@@ -23,7 +23,7 @@
     <% @link.comments.each do |comment| %>
     <li class ="list-group-item">
         <%= comment.body %>
-        <div class="text-right">
+        <div class>
           by: <%= comment.user.user_name %>
           <small><%= time_ago_in_words(Time.now) %></small>
         </div>
