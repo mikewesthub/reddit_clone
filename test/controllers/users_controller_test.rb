@@ -6,11 +6,6 @@ class UsersControllerTest < ActionController::TestCase
     session[:user_id] = @user.id
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
   test "should get new" do
     unless @user
       get :new

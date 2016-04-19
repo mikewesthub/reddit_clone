@@ -31,7 +31,7 @@ class LinksControllerTest < ActionController::TestCase
   test "should get delete" do
     @link = links(:tacocat)
     link_count = Link.count
-    delete :destroy, id: @link.id
+    delete :destroy, link_id: @link.id
     assert_redirected_to controller: "links", action: "index"
     assert_equal link_count - 1, Link.count
   end

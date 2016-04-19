@@ -1,13 +1,11 @@
 <h2>Your Posts</h2>
 
 <% @links.each do |link| %>
-
-<ul class="list-group">
+  <ul class="list-group">
     <li class ="list-group-item">
       <%= link_to "#{link.title}", link_path(id: link.id) %>
       <%= link.description %>
       <small><%= time_ago_in_words(Time.now) %></small>
     </li>
   </ul>
-
 <% end %>

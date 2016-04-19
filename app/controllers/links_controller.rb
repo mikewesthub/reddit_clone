@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :destroy, :update]
-
+  before_action :authorize_user_by_link, only: [:edit, :destroy, :update]
   def index
     @links = Link.order(created_at: :desc).page params[:page]
   end
@@ -39,5 +39,9 @@ class LinksController < ApplicationController
 
   def set_link
     @link = Link.find(params[:id])
+  end
+
+  def authorize_user_by_link
+    redirect_to(root_path, notice: "You have to be logged in to do that" ) unless @link.user == current_user
   end
 end

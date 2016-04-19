@@ -6,30 +6,10 @@ class CommentsControllerTest < ActionController::TestCase
     session[:user_id] = @user.id
   end
 
-  test "should get index" do
-    @link = links(:tacocat)
-    @comment = comments(:comment)
-    get :index, link_id: @link.id
-    assert_response :success
-  end
-
-  test "should get new" do
-    @link = links(:tacocat)
-    get :new, id: @link.id
-    assert_response :success
-  end
-
-  test "should get show" do
-    @link = links(:tacocat)
-    @comment = comments(:comment)
-    get :show
-    assert_response :success
-  end
-
   test "should get edit" do
     @link = links(:tacocat)
     @comment = comments(:comment)
-    get :edit, link_id: @comment.link_id
+    get :edit, id: @comment.id
     assert_response :success
   end
 
@@ -44,7 +24,7 @@ class CommentsControllerTest < ActionController::TestCase
 
   test "should get update" do
     @comment = comments(:comment)
-    patch :update, id: @comment.id, comment: { body: "I'm a little teapot"}
+    patch :update, link_id: @comment.link_id, comment: { body: "I'm a little teapot"}
     assert_redirected_to controller: "comments", action: "index"
     assert_equal "I'm a little teapot", assigns(:comment).body
   end

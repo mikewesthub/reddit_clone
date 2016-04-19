@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_link, only: [:edit, :destroy, :update, :create]
   before_action :set_comment, only: [:edit, :destroy, :update]
-
+  before_action :authorize_user_by_comment, only: [:edit, :destroy, :update]
   def edit
   end
 
@@ -32,5 +32,9 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def authorize_user_by_comment
+    redirect_to(root_path, notice: "You have to be logged in to do that!" ) unless @comment.user == current_user
   end
 end
